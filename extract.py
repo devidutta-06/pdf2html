@@ -115,8 +115,8 @@ def _extract_shapes(page):
         rect = fitz.Rect(d["rect"])
         base = {"type": "shape", "fill": fill, "stroke": stroke, "sw": sw, "opacity": op}
 
-        def box(kind, r, **extra):
-            e = dict(base, kind=kind, x=r.x0, y=r.y0, w=r.width, h=r.height)
+        def box(kind, rect, **extra):
+            e = dict(base, kind=kind, x=rect.x0, y=rect.y0, w=rect.width, h=rect.height)
             e.update(extra)
             return e
 
